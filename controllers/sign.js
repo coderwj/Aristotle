@@ -5,11 +5,11 @@ var tools          = require('../common/tools');
 
 //sign up
 exports.showSignup = function (req, res) {
-  res.render('sign/signup');
+  res.render('signup');
 };
 
 exports.showLogin = function(req, res){
-  res.render('sign/login');
+  res.render('login');
 };
 
 exports.signup = function (req, res, next) {

@@ -4,7 +4,7 @@
       <span class='col_fade'>关于</span>
     </div>
     <div class='inner'>
-      <p><%= config.description %></p>
+      <p id="confitgText"></p>
 
       <p>在这里你可以：</p>
       <ul>
@@ -16,3 +16,8 @@
     </div>
   </div>
 </div>
+<script>
+  var config = require("../config.js");
+  var configText=document.getElementById("confitgText");
+  var configText.innerText=config.description;
+</script>

@@ -1,7 +1,5 @@
 
-
 var config = require('./config');
-
 var path = require('path');
 var express = require('express');
 require('./middlewares/mongoose_log'); // 打印 mongodb 查询日志
@@ -20,6 +18,13 @@ config.hostname = urlinfo.hostname || config.host;
 var staticDir = path.join(__dirname, 'public');
 
 var app = express();
+
+// configuration in all env
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'html');
+app.engine('html', require('ejs-mate'));
+//app.locals._layoutFile = 'layout.html';
+app.enable('trust proxy');
 
 
 // Request logger。请求时间

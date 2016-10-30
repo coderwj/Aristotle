@@ -1,11 +1,10 @@
-<%- partial('../sign/sidebar') %>
+<%- partial('./sidebar') %>
 
 <div id='content'>
   <div class='panel'>
     <div class='header'>
       <ul class='breadcrumb'>
-        <li><a href='/'>主页</a><span class='divider'>/</span></li>
-        <li class='active'>注册</li>
+        <li><a href='/'>登录</a><span class='divider'>/</span></li>
       </ul>
     </div>
     <div class='inner'>
@@ -46,27 +45,7 @@
             <input class='input-xlarge' id='re_pass' name='re_pass' size='30' type='password'/>
           </div>
         </div>
-        <div class='control-group'>
-          <label class='control-label' for='email'>电子邮箱</label>
 
-          <div class='controls'>
-            <% if (typeof(email) !== 'undefined') { %>
-            <input class='input-xlarge' id='email' name='email' size='30' type='text' value='<%= email %>'/>
-            <% } else { %>
-            <input class='input-xlarge' id='email' name='email' size='30' type='text'/>
-            <% } %>
-          </div>
-        </div>
-        <input type='hidden' name='_csrf' value='<%= csrf %>'/>
-
-        <div class='form-actions'>
-          <input type='submit' class='span-primary' value='注册'/>
-          <a href="/auth/github">
-            <span class="span-info">
-              通过 GitHub 登录
-            </span>
-          </a>
-        </div>
       </form>
       <% } %>
     </div>
