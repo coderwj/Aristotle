@@ -2,6 +2,7 @@ var validator      = require('validator');
 var eventproxy     = require('eventproxy');
 var config         = require('../config');
 var tools          = require('../common/tools');
+var logger = require('../common/logger');
 
 //sign up
 exports.showSignup = function (req, res) {
@@ -13,6 +14,7 @@ exports.showLogin = function(req, res){
 };
 
 exports.signup = function (req, res, next) {
+
   var loginname = validator.trim(req.body.loginname).toLowerCase();
   var pass      = validator.trim(req.body.pass);
   var rePass    = validator.trim(req.body.re_pass);
