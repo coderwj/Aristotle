@@ -2,7 +2,6 @@
 
 var config = require('./config');
 
-require('colors');
 var path = require('path');
 var express = require('express');
 require('./middlewares/mongoose_log'); // 打印 mongodb 查询日志

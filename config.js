@@ -8,7 +8,7 @@ var config = {
   debug: true,
 
   name: 'Aristotle',
-  name_ch: '家校沟通系统'
+  name_ch: '家校沟通系统',
   description: 'Aristotle：专业的老师和家长的沟通平台',
 
   // 添加到 html head 中的信息
