@@ -6,6 +6,7 @@ require('./middlewares/mongoose_log'); // 打印 mongodb 查询日志
 require('./models');
 var webRouter = require('./web_router');
 var errorPageMiddleware = require('./middlewares/error_page');
+var bodyParser = require('body-parser');
 
 var errorhandler = require('errorhandler');
 var requestLog = require('./middlewares/request_log');
@@ -18,6 +19,10 @@ config.hostname = urlinfo.hostname || config.host;
 var staticDir = path.join(__dirname, 'public');
 
 var app = express();
+
+// http body 设置，url 设置
+app.use(bodyParser.json({limit: '1mb'}));
+app.use(bodyParser.urlencoded({ extended: true, limit: '1mb' }));
 
 // configuration in all env
 app.set('views', path.join(__dirname, 'views'));
