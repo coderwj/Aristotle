@@ -524,3 +524,96 @@ Started 2016-10-30T13:00:12.221Z GET /signup ::1
 
 Started 2016-10-30T13:00:13.976Z POST /signup ::1
 [2016-10-30 21:00:13.978] [INFO] cheese - body is[object Object]
+[2016-11-01 14:40:49.574] [INFO] cheese - Aristotle listening on port 3000
+[2016-11-01 14:41:02.401] [INFO] cheese - Aristotle listening on port 3000
+[2016-11-01 14:41:02.405] [INFO] cheese - You can debug your app with http://localhost:3000
+[2016-11-01 14:41:08.714] [INFO] cheese - 
+
+Started 2016-11-01T06:41:08.713Z GET /signup ::1
+[2016-11-01 14:41:08.727] [INFO] cheese - Completed 200 undefined
+[2016-11-01 14:52:20.436] [INFO] cheese - 
+
+Started 2016-11-01T06:52:20.436Z GET /signup ::1
+[2016-11-01 14:52:20.440] [INFO] cheese - Completed 200 undefined
+[2016-11-01 14:52:38.197] [INFO] cheese - 
+
+Started 2016-11-01T06:52:38.196Z POST /signup ::1
+[2016-11-01 14:52:38.207] [INFO] cheese - Completed 500 undefined
+[2016-11-01 14:52:56.347] [INFO] cheese - 
+
+Started 2016-11-01T06:52:56.347Z GET /login ::1
+[2016-11-01 14:52:56.349] [INFO] cheese - Completed 404 undefined
+[2016-11-01 14:54:37.476] [INFO] cheese - 
+
+Started 2016-11-01T06:54:37.476Z GET /signup ::1
+[2016-11-01 14:54:37.478] [INFO] cheese - Completed 200 undefined
+[2016-11-01 14:54:38.943] [INFO] cheese - 
+
+Started 2016-11-01T06:54:38.943Z GET /signup ::1
+[2016-11-01 14:54:38.945] [INFO] cheese - Completed 304 undefined
+[2016-11-01 14:54:47.125] [INFO] cheese - 
+
+Started 2016-11-01T06:54:47.125Z GET /signup?loginname=qqqqqqq&pass=1111&re_pass=1111 ::1
+[2016-11-01 14:54:47.126] [INFO] cheese - Completed 200 undefined
+[2016-11-01 14:54:58.921] [INFO] cheese - 
+
+Started 2016-11-01T06:54:58.921Z GET /login ::1
+[2016-11-01 14:54:58.923] [INFO] cheese - Completed 404 undefined
+[2016-11-01 15:18:18.364] [INFO] cheese - 
+
+Started 2016-11-01T07:18:18.364Z GET /signup?loginname=qqqqqqq&pass=1111&re_pass=1111 ::1
+[2016-11-01 15:18:18.368] [INFO] cheese - Completed 200 undefined
+[2016-11-01 15:18:19.081] [INFO] cheese - 
+
+Started 2016-11-01T07:18:19.081Z GET /signup?loginname=qqqqqqq&pass=1111&re_pass=1111 ::1
+[2016-11-01 15:18:19.083] [INFO] cheese - Completed 304 undefined
+[2016-11-01 15:18:20.107] [INFO] cheese - 
+
+Started 2016-11-01T07:18:20.107Z GET /signin ::1
+[2016-11-01 15:18:20.111] [INFO] cheese - Completed 500 undefined
+[2016-11-01 15:19:16.531] [INFO] cheese - Aristotle listening on port 3000
+[2016-11-01 15:19:16.534] [INFO] cheese - You can debug your app with http://localhost:3000
+[2016-11-01 15:19:21.426] [INFO] cheese - 
+
+Started 2016-11-01T07:19:21.425Z GET / ::1
+[2016-11-01 15:19:21.433] [INFO] cheese - Completed 302 undefined
+[2016-11-01 15:19:21.436] [INFO] cheese - 
+
+Started 2016-11-01T07:19:21.436Z GET /signup ::1
+[2016-11-01 15:19:21.442] [INFO] cheese - Completed 200 undefined
+[2016-11-01 15:19:23.123] [INFO] cheese - 
+
+Started 2016-11-01T07:19:23.123Z GET /signin ::1
+[2016-11-01 15:19:23.127] [INFO] cheese - Completed 200 undefined
+[2016-11-01 15:23:34.686] [INFO] cheese - Aristotle listening on port 3000
+[2016-11-01 15:23:34.689] [INFO] cheese - You can debug your app with http://localhost:3000
+[2016-11-01 15:23:39.182] [INFO] cheese - 
+
+Started 2016-11-01T07:23:39.182Z GET / ::1
+[2016-11-01 15:23:39.189] [INFO] cheese - Completed 302 undefined
+[2016-11-01 15:23:39.192] [INFO] cheese - 
+
+Started 2016-11-01T07:23:39.192Z GET /signup ::1
+[2016-11-01 15:23:39.198] [INFO] cheese - Completed 304 undefined
+[2016-11-01 15:23:41.324] [INFO] cheese - 
+
+Started 2016-11-01T07:23:41.323Z GET /signin ::1
+[2016-11-01 15:23:41.329] [INFO] cheese - Completed 200 undefined
+[2016-11-01 15:23:48.359] [INFO] cheese - 
+
+Started 2016-11-01T07:23:48.358Z POST /signin ::1
+[2016-11-01 15:23:48.367] [INFO] cheese - Completed 500 undefined
+[2016-11-01 15:37:15.922] [INFO] cheese - Aristotle listening on port 3000
+[2016-11-01 15:37:15.925] [INFO] cheese - You can debug your app with http://localhost:3000
+[2016-11-01 15:37:24.347] [INFO] cheese - 
+
+Started 2016-11-01T07:37:24.346Z GET / ::1
+[2016-11-01 15:37:24.354] [INFO] cheese - Completed 302 undefined
+[2016-11-01 15:37:24.357] [INFO] cheese - 
+
+Started 2016-11-01T07:37:24.357Z GET /signup ::1
+[2016-11-01 15:37:24.363] [INFO] cheese - Completed 304 undefined
+[2016-11-01 15:37:34.261] [INFO] cheese - 
+
+Started 2016-11-01T07:37:34.261Z POST /signup ::1
+[2016-11-01 15:37:34.267] [INFO] cheese - Completed 500 undefined

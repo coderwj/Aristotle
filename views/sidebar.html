@@ -1,15 +1,22 @@
+<head>
+  <!-- meta -->
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+
 <div id='sidebar'>
   <div class='panel'>
     <div class='header'>
+      <img src="../public/images/icon.png" width="108" height="120" />
       <span class='col_fade'>家校沟通系统</span>
     </div>
     <div class='inner'>
-      <p id='configText'>专业的老师和家长的沟通平台</p>
+      <p id='configText'></p>
       <p>帮助孩子快乐学习，健康成长</p>
     </div>
   </div>
 </div>
-<script>
+<script type="text/javascript">
   var config = require("../config");
   var configText=document.getElementById('configText');
   var configText.innerText=config.description;

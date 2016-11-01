@@ -10,10 +10,10 @@ var router = express.Router();
 router.get('/', site.index);
 
 // sign controller
-router.get('/signup', sign.showSignup);  // 跳转到注册页面
-router.post('/signup', sign.signup);  // 提交注册信息
-router.get('/signin', sign.showLogin);  // 进入登录页面
-
+router.get('/signup', sign.showSignup);  // 进入注册页面
+router.post('/signup', sign.signup);  // 注册
+router.get('/signin', sign.showSignin);  // 进入登录页面
+router.post('/signin', sign.signin); // 登录
 
 
 

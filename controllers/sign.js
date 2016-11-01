@@ -9,8 +9,8 @@ exports.showSignup = function (req, res) {
   res.render('signup');
 };
 
-exports.showLogin = function(req, res){
-  res.render('login');
+exports.showSignin = function(req, res){
+  res.render('signin');
 };
 
 exports.signup = function (req, res, next) {
@@ -52,7 +52,7 @@ exports.signup = function (req, res, next) {
  * @param {HttpResponse} res
  * @param {Function} next
  */
-exports.login = function (req, res, next) {
+exports.signin = function (req, res, next) {
   var loginname = validator.trim(req.body.name).toLowerCase();
   var pass      = validator.trim(req.body.pass);
   var ep        = new eventproxy();
