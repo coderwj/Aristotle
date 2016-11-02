@@ -6,6 +6,12 @@
     <a href='/signin'>去登录</a>
   </div>
 
+  <% if(typeof(error) !== 'undefined' && error){ %>
+  <div class='info'>
+    <p><%= error %></p>
+  </div>
+  <% } %>
+
   <div class='inner'>
     <form id='signup_form' class='form-horizontal' action='/signup' method='post'>
       <input class='input-xlarge' id='loginname' name='loginname' size='30' type='text' placeholder="用户名"/>

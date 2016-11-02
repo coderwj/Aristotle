@@ -3,6 +3,7 @@ var eventproxy     = require('eventproxy');
 var config         = require('../config');
 var tools          = require('../common/tools');
 var logger = require('../common/logger');
+var userproxy = require('../proxy/user')
 
 //sign up
 exports.showSignup = function (req, res) {
@@ -23,7 +24,7 @@ exports.signup = function (req, res, next) {
   ep.fail(next);
   ep.on('prop_err', function (msg) {
     res.status(422);
-    res.render('sign/signup', {error: msg, loginname: loginname});
+    res.render('signup', {error: msg, loginname: loginname});
   });
 
   // 验证信息的正确性
@@ -42,6 +43,12 @@ exports.signup = function (req, res, next) {
     return ep.emit('prop_err', '两次密码输入不一致。');
   }
   // END 验证信息的正确性
+  userproxy.newAndSave(loginname, pass, function (err) {
+    if(err){
+      return next(err);
+    }
+    res.render('signin',{success : '注册成功，请登录。'});
+  });
 };
 
 
@@ -61,12 +68,12 @@ exports.signin = function (req, res, next) {
 
   if (!loginname || !pass) {
     res.status(422);
-    return res.render('sign/signin', { error: '信息不完整。' });
+    res.render('signin', { error: '信息不完整。' });
   }
 
   ep.on('login_error', function (login_error) {
     res.status(403);
-    res.render('sign/signin', { error: '用户名或密码错误' });
+    res.render('signin', { error: '用户名或密码错误' });
   });
 
 };

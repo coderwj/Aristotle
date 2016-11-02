@@ -3,7 +3,6 @@ var Schema    = mongoose.Schema;
 
 var UserSchema = new Schema({
   name: { type: String},
-  loginname: { type: String},
   pass: { type: String },
 
 
@@ -16,12 +15,12 @@ var UserSchema = new Schema({
 });
 
 
-UserSchema.index({loginname: 1}, {unique: true});
+UserSchema.index({name: 1}, {unique: true});
 
-UserSchema.pre('save', function(next){
+UserSchema.pre('save', function(callback){
   var now = new Date();
   this.update_at = now;
-  next();
+  callback();
 });
 
 mongoose.model('User', UserSchema);

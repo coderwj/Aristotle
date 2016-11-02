@@ -5,6 +5,11 @@
     <div class='header'>
       <a href='/signup'>去注册</a>
     </div>
+    <% if(typeof(error) !== 'undefined' && error){ %>
+    <div class='info'>
+      <p><%= error %></p>
+    </div>
+    <% } %>
     <div class='inner'>
       <form id='signin_form' class='form-horizontal' action='/signin' method='post'>
         <input class='input-xlarge' id='name' name='name' size='30' type='text' placeholder="用户名"/>
