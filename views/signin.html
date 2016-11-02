@@ -10,6 +10,11 @@
       <p><%= error %></p>
     </div>
     <% } %>
+    <% if(typeof(success) !== 'undefined' && success){ %>
+    <div class='info'>
+      <p><%= success %></p>
+    </div>
+    <% } %>
     <div class='inner'>
       <form id='signin_form' class='form-horizontal' action='/signin' method='post'>
         <input class='input-xlarge' id='name' name='name' size='30' type='text' placeholder="用户名"/>
