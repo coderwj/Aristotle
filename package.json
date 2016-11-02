@@ -23,6 +23,8 @@
   },
   "devDependencies": {
     "ejs-mate": "^2.3.0",
-    "errorhandler": "^1.4.3"
+    "errorhandler": "^1.4.3",
+    "jade": "^1.11.0",
+    "stylus": "^0.54.5"
   }
 }
