@@ -21,7 +21,7 @@ exports.getUserByName = function (name, callback) {
   if (!name) {
     return callback();
   }
-  User.findOne({ loginname: name }, callback);
+  User.findOne({ name: name }, callback);
 };
 
 
