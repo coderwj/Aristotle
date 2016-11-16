@@ -3,7 +3,8 @@ var eventproxy     = require('eventproxy');
 var config         = require('../config');
 var tools          = require('../common/tools');
 var logger = require('../common/logger');
-var parentproxy = require('../proxy/parent')
+var parentproxy = require('../proxy/parent');
+var studentproxy = require('../proxy/student');
 
 //sign up
 exports.showSignup = function (req, res) {
@@ -20,6 +21,7 @@ exports.signup = function (req, res, next) {
   var id = validator.trim(req.body.id).toLowerCase();
   var pass      = validator.trim(req.body.pass);
   var rePass    = validator.trim(req.body.re_pass);
+  var stuId     = validator.trim(req.body.stu_id).toLowerCase();
 
   var ep = new eventproxy();
   ep.fail(next);
@@ -27,9 +29,36 @@ exports.signup = function (req, res, next) {
     res.status(422);
     res.render('signup', {error : msg});
   });
+  ep.on('stu_id_right',function () {
+    parentproxy.getParentById(id, function (err, parent) {
+      if (err) {
+        return next(err);
+      }
+      if (parent) {
+        ep.emit('prop_err', parent.id + '用户名已被使用。');
+        return;
+      }
+      parentproxy.newAndSave(id, pass, function (err) {
+        if(err){
+          return next(err);
+        }
+        ep.emit('signin_suc');
+      });
+    });
+  });
+  ep.on('signin_suc', function() {
+    studentproxy.updateHasParentById(stuId, true, function(err) {
+      if(err){
+        return next(err);
+      }
+      else{
+        res.render('signin',{success : '注册成功，请登录。'});
+      }
+    });
+  });
 
   // 验证信息的正确性
-  if ([id, pass, rePass].some(function (item) { return item === ''; })) {
+  if ([id, pass, rePass, stuId].some(function (item) { return item === ''; })) {
     ep.emit('prop_err', '信息不完整。');
     return;
   }
@@ -43,22 +72,24 @@ exports.signup = function (req, res, next) {
   if (pass !== rePass) {
     return ep.emit('prop_err', '两次密码输入不一致。');
   }
-  // END 验证信息的正确性
 
-  parentproxy.getParentById(id, function (err, parent) {
-    if (err) {
+  //检查学生学号正确性
+  studentproxy.getStudentById(stuId ,function (err, student) {
+    if(err){
       return next(err);
     }
-    if (parent) {
-      ep.emit('prop_err', parent.id + '用户名已被使用。');
-      return;
-    }
-    parentproxy.newAndSave(id, pass, function (err) {
-      if(err){
-        return next(err);
+    if(student){
+      if(student.has_parent){
+        return ep.emit('prop_err', '该学生家长已注册。');
       }
-      res.render('signin',{success : '注册成功，请登录。'});
-    });
+      else{
+        //正确
+        return ep.emit('stu_id_right');
+      }
+    }
+    else{
+      return ep.emit('prop_err', '该学生不存在，请检查学生学号。');
+    }
   });
 };
 

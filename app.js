@@ -55,7 +55,7 @@ if (config.debug) {
 
 if (config.reinit) {
 	var init = require('./init');
-	init.reinit();
+	init.reinit(config.reset_parent);
 }
 
 if (!module.parent) {

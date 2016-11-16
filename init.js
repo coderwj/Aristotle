@@ -2,9 +2,20 @@ var models  = require('./models');
 var Student = models.Student;
 var Teacher = models.Teacher;
 var Class = models.Class;
+var Parent = models.Parent;
 var logger = require('./common/logger');
 
-var clean = function () {
+var clean = function (reset_parent) {
+	if(reset_parent){
+		Parent.remove({}, function(error){
+		    if(error) {
+		        logger.info(error);
+		    }
+		    else {
+		        logger.info('clean Parent!');
+		    }
+		});
+	}
 	Student.remove({}, function(error){
 	    if(error) {
 	        logger.info(error);
@@ -78,9 +89,9 @@ var newClass = function (id, head_t_id, math_t_id, Chinese_t_id, English_t_id) {
 	});
 };
 
-exports.reinit = function () {
+exports.reinit = function (reset_parent) {
 	logger.info('reinit system and database!')
-	clean();
+	clean(reset_parent);
 	newStudent('stu1', '学生1', 'class1');
 	newStudent('stu2', '学生2', 'class1');
 	newStudent('stu3', '学生3', 'class2');

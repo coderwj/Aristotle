@@ -28,6 +28,8 @@ var config = {
 
   reinit: true,
 
+  reset_parent: true,
+
 };
 
 module.exports = config;
