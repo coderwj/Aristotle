@@ -12,6 +12,14 @@ mongoose.connect(config.db, {
 });
 
 // models
-require('./user');
+require('./parent');
+exports.Parent = mongoose.model('Parent');
 
-exports.User = mongoose.model('User');
+require('./student');
+exports.Student = mongoose.model('Student');
+
+require('./teacher');
+exports.Teacher = mongoose.model('Teacher');
+
+require('./class');
+exports.Class = mongoose.model('Class');

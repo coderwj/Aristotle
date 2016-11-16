@@ -1,10 +1,10 @@
 var mongoose  = require('mongoose');
 var Schema    = mongoose.Schema;
 
-var UserSchema = new Schema({
-  name: { type: String},
+var ParentSchema = new Schema({
+  id: { type: String},
   pass: { type: String },
-
+  stu_id: { type: String },
 
   create_at: { type: Date, default: Date.now },
   update_at: { type: Date, default: Date.now },
@@ -15,12 +15,12 @@ var UserSchema = new Schema({
 });
 
 
-UserSchema.index({name: 1}, {unique: true});
+ParentSchema.index({id: 1}, {unique: true});
 
-UserSchema.pre('save', function(callback){
+ParentSchema.pre('save', function(callback){
   var now = new Date();
   this.update_at = now;
   callback();
 });
 
-mongoose.model('User', UserSchema);
+mongoose.model('Parent', ParentSchema);

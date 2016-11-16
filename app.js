@@ -53,6 +53,11 @@ if (config.debug) {
   });
 }
 
+if (config.reinit) {
+	var init = require('./init');
+	init.reinit();
+}
+
 if (!module.parent) {
   app.listen(config.port, function () {
     logger.info('Aristotle listening on port', config.port);

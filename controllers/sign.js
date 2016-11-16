@@ -3,7 +3,7 @@ var eventproxy     = require('eventproxy');
 var config         = require('../config');
 var tools          = require('../common/tools');
 var logger = require('../common/logger');
-var userproxy = require('../proxy/user')
+var parentproxy = require('../proxy/parent')
 
 //sign up
 exports.showSignup = function (req, res) {
@@ -16,7 +16,8 @@ exports.showSignin = function(req, res){
 
 exports.signup = function (req, res, next) {
 
-  var loginname = validator.trim(req.body.loginname).toLowerCase();
+  //id不区分大小写，且不能重复
+  var id = validator.trim(req.body.id).toLowerCase();
   var pass      = validator.trim(req.body.pass);
   var rePass    = validator.trim(req.body.re_pass);
 
@@ -24,19 +25,19 @@ exports.signup = function (req, res, next) {
   ep.fail(next);
   ep.on('prop_err', function (msg) {
     res.status(422);
-    res.render('signup', {error: msg, loginname: loginname});
+    res.render('signup', {error : msg});
   });
 
   // 验证信息的正确性
-  if ([loginname, pass, rePass].some(function (item) { return item === ''; })) {
+  if ([id, pass, rePass].some(function (item) { return item === ''; })) {
     ep.emit('prop_err', '信息不完整。');
     return;
   }
-  if (loginname.length < 5) {
+  if (id.length < 5) {
     ep.emit('prop_err', '用户名至少需要5个字符。');
     return;
   }
-  if (!tools.validateId(loginname)) {
+  if (!tools.validateId(id)) {
     return ep.emit('prop_err', '用户名不合法。');
   }
   if (pass !== rePass) {
@@ -44,15 +45,15 @@ exports.signup = function (req, res, next) {
   }
   // END 验证信息的正确性
 
-  userproxy.getUserByName(loginname, function (err, user) {
+  parentproxy.getParentById(id, function (err, parent) {
     if (err) {
       return next(err);
     }
-    if (user) {
-      ep.emit('prop_err', user.name + '用户名已被使用。');
+    if (parent) {
+      ep.emit('prop_err', parent.id + '用户名已被使用。');
       return;
     }
-    userproxy.newAndSave(loginname, pass, function (err) {
+    parentproxy.newAndSave(id, pass, function (err) {
       if(err){
         return next(err);
       }
@@ -63,30 +64,36 @@ exports.signup = function (req, res, next) {
 
 
 /**
- * Handle user login.
+ * Handle parent login.
  *
  * @param {HttpRequest} req
  * @param {HttpResponse} res
  * @param {Function} next
  */
 exports.signin = function (req, res, next) {
-  var loginname = validator.trim(req.body.name).toLowerCase();
+  var id = validator.trim(req.body.id).toLowerCase();
   var pass      = validator.trim(req.body.pass);
   var ep        = new eventproxy();
 
   ep.fail(next);
 
-  if (!loginname || !pass) {
+  if (!id || !pass) {
     res.status(422);
     res.render('signin', { error: '信息不完整。' });
     return;
   }
 
-  ep.on('login_error', function (login_error) {
+  ep.on('login_error', function () {
     res.status(403);
     res.render('signin', { error: '用户名或密码错误' });
     return;
   });
-  res.render('signin', { success: '登录成功进入主页。。。' });
+  parentproxy.getParentByIdAndPass(id, pass, function (err, parent) {
+    if(!parent){
+      ep.emit('login_error');
+      return;
+    }
+    res.redirect('home');
+  });
 };
 
