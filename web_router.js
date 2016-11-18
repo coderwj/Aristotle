@@ -5,6 +5,8 @@ var site = require('./controllers/site');
 var sign = require('./controllers/sign');
 var home = require('./controllers/home');
 
+var study = require('./controllers/study');
+
 var router = express.Router();
 
 // home page
@@ -24,5 +26,6 @@ router.get('/home/bbs', home.showBbs);//进入家长社区
 router.get('/home/info', home.showInfo);//进入消息平台
 router.get('/home/quit', home.Quit);//退出登录
 
+router.post('/home/study', study.homeworkEnsure);//作业监督确认
 
 module.exports = router;

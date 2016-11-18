@@ -57,9 +57,18 @@ exports.showStudy = function (req, res) {
     	if(!_class){
 	    	return res.sendStatus(403);
 	    }
-	    res.render('home/study', { math_hw: _class.math_hw,
+	    var stu_id = req.cookies.stu_id
+	    studentproxy.getStudentById(stu_id ,function (err, student) {
+		    if(!student){
+		    	return res.sendStatus(403);
+		    }
+		    res.render('home/study', { math_hw: _class.math_hw,
 	    							Chinese_hw: _class.Chinese_hw,
-	    							English_hw: _class.English_hw });
+	    							English_hw: _class.English_hw,
+	    							math_done: student.math_done,
+	    							Chinese_done: student.Chinese_done,
+	    							English_done: student.English_done });
+		});
     });
 };
 

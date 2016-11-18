@@ -6,18 +6,46 @@
 	<tr>
 		<th>语文：</th>
 		<td><%=Chinese_hw %></td>
-		<td><input type="submit" value="确认完成"></td>
+		<td>
+			<% if(typeof(Chinese_done) !== 'undefined' && Chinese_done === false) { %>
+			<form id='study_form' class='form-horizontal' action='/home/study?subject=Chinese' method='post'>
+				<input type="submit" value="确认完成">
+    		</form>
+    		<% } %>
+    		<% if(typeof(Chinese_done) !== 'undefined' && Chinese_done === true) { %>
+			已完成
+    		<% } %>
+		</td>
 	</tr>
 
 	<tr>
 		<th>数学：</th>
 		<td><%=math_hw %></td>
-		<td><input type="submit" value="确认完成"></td>
+		<td>
+			<% if(typeof(math_done) !== 'undefined' && math_done === false) { %>
+			<form id='study_form' class='form-horizontal' action='/home/study?subject=math' method='post'>
+				<input type="submit" value="确认完成">
+    		</form>
+    		<% } %>
+    		<% if(typeof(math_done) !== 'undefined' && math_done === true) { %>
+			已完成
+    		<% } %>
+		</td>
 	</tr>
 
 	<tr>
 		<th>英语：</th>
 		<td><%=English_hw %></td>
-		<td><input type="submit" value="确认完成"></td>
+		<td>
+			<% if(typeof(English_done) !== 'undefined' && English_done === false) { %>
+			<form id='study_form' class='form-horizontal' action='/home/study?subject=English' method='post'>
+				<input type="submit" value="确认完成">
+    		</form>
+    		<% } %>
+    		<% if(typeof(English_done) !== 'undefined' && English_done === true) { %>
+			已完成
+    		<% } %>
+		</td>
 	</tr>
+
 </table>
