@@ -26,7 +26,7 @@ var config = {
   // mongodb 配置
   db: 'mongodb://127.0.0.1/Aristotle',
 
-  reinit: true,
+  reinit: false,
 
   reset_parent: true,
 

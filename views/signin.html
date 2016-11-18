@@ -1,10 +1,18 @@
-<%- partial('./sidebar') %>
+<%- partial('./head') %>
 
 <div id='content'>
   <div class='panel'>
     <div class='header'>
       <a href='/signup'>去注册</a>
     </div>
+     <% if(typeof(info) !== 'undefined' && info){ %>
+    <div class='info'>
+      <p><%= info %></p>
+    </div>
+    <script type="text/javascript">
+      document.location = '/signin'
+    </script>
+    <% } %>
     <% if(typeof(error) !== 'undefined' && error){ %>
     <div class='info'>
       <p><%= error %></p>
@@ -14,6 +22,9 @@
     <div class='info'>
       <p><%= success %></p>
     </div>
+    <script type="text/javascript">
+      document.location = '/home'
+    </script>
     <% } %>
     <div class='inner'>
       <form id='signin_form' class='form-horizontal' action='/signin' method='post'>

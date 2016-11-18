@@ -24,6 +24,9 @@ var app = express();
 app.use(bodyParser.json({limit: '1mb'}));
 app.use(bodyParser.urlencoded({ extended: true, limit: '1mb' }));
 
+var cookieParser = require('cookie-parser');
+app.use(cookieParser());
+
 // configuration in all env
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');

@@ -52,7 +52,7 @@ exports.signup = function (req, res, next) {
         return next(err);
       }
       else{
-        res.render('signin',{success : '注册成功，请登录。'});
+        res.render('signin',{info : '注册成功，请登录。'});
       }
     });
   });
@@ -124,7 +124,8 @@ exports.signin = function (req, res, next) {
       ep.emit('login_error');
       return;
     }
-    res.redirect('home');
+    res.cookie('id', id, { path: '/home' });
+    res.render('signin', { success: '登陆成功，跳转中。。。', host: config.hostname, port: config.port });
   });
 };
 

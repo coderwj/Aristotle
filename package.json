@@ -18,6 +18,7 @@
   "homepage": "https://github.com/coderwj/Aristotle#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
     "utility": "^1.8.0"
   },
