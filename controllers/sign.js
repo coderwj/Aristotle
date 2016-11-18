@@ -38,7 +38,7 @@ exports.signup = function (req, res, next) {
         ep.emit('prop_err', parent.id + '用户名已被使用。');
         return;
       }
-      parentproxy.newAndSave(id, pass, function (err) {
+      parentproxy.newAndSave(id, pass, stuId, function (err) {
         if(err){
           return next(err);
         }

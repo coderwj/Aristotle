@@ -1,3 +1,23 @@
 <%- partial('./menu') %>
 
-<p>content of STUDY</p>
+<h2>作业监督</h2>
+<table border="1">
+
+	<tr>
+		<th>语文：</th>
+		<td><%=Chinese_hw %></td>
+		<td><input type="submit" value="确认完成"></td>
+	</tr>
+
+	<tr>
+		<th>数学：</th>
+		<td><%=math_hw %></td>
+		<td><input type="submit" value="确认完成"></td>
+	</tr>
+
+	<tr>
+		<th>英语：</th>
+		<td><%=English_hw %></td>
+		<td><input type="submit" value="确认完成"></td>
+	</tr>
+</table>
