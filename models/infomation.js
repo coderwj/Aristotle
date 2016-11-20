@@ -11,4 +11,4 @@ var InfomationSchema = new Schema({
 });
 InfomationSchema.index({id: 1}, {unique: true});
 
-mongoose.model('Question', InfomationSchema);
+mongoose.model('Infomation', InfomationSchema);
