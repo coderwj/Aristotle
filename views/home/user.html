@@ -1,31 +1,41 @@
 <%- partial('./menu') %>
 
 
-<table border="1">
+<table class="user-info be-center box-border">
 
-<tr>
-<th>用户名：</th>
-<td><%=id %></td>
-</tr>
+  <tr>
+  <th><div class="title">
+    用户名：
+  </div></th>
+  <td><%=id %></td>
+  </tr>
 
-<tr>
-<th>身份：</th>
-<td>家长</td>
-</tr>
+  <tr>
+  <th><div class="title">
+    身份：
+  </div></th>
+  <td>家长</td>
+  </tr>
 
-<tr>
-<th>学生：</th>
-<td><%=stu_name %></td>
-</tr>
+  <tr>
+  <th><div class="title">
+    学生：
+  </th>
+  <td><%=stu_name %></td>
+  </tr>
 
-<tr>
-<th>所在班级：</th>
-<td><%=stu_class %></td>
-</tr>
+  <tr>
+  <th><div class="title">
+    所在班级：
+  </div></th>
+  <td><%=stu_class %></td>
+  </tr>
 
-<tr>
-<th>班主任：</th>
-<td><%=head_t %></td>
-</tr>
+  <tr>
+  <th><div class="title">
+    班主任：
+  </div></th>
+  <td><%=head_t %></td>
+  </tr>
 
 </table>

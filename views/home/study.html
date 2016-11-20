@@ -1,85 +1,57 @@
 <%- partial('./menu') %>
 
-<h2>作业监督：</h2>
-<table border="1">
+<div class="wrapper">
+	<h2 class="check-head">作业监督</h2>
+  <ul style="list-style:none;">
+		<li class="subject-panel">
+			<h2>语文：</h2>
+			<br>
+			<p><%=Chinese_hw %></p>
+			<br>
+			<div>
+				<% if(typeof(Chinese_done) !== 'undefined' && Chinese_done === false) { %>
+				<form id='study_form' class='form-horizontal' action='/home/study?subject=Chinese' method='post'>
+					<input type="submit" value="确认完成" class="btn">
+	    		</form>
+	    		<% } %>
+	    		<% if(typeof(Chinese_done) !== 'undefined' && Chinese_done === true) { %>
+				<span>已完成，继续加油噢！</span>
+	    		<% } %>
+			</div>
+		</li>
 
-	<tr>
-		<th>语文：</th>
-		<td><%=Chinese_hw %></td>
-		<td>
-			<% if(typeof(Chinese_done) !== 'undefined' && Chinese_done === false) { %>
-			<form id='study_form' class='form-horizontal' action='/home/study?subject=Chinese' method='post'>
-				<input type="submit" value="确认完成">
-    		</form>
-    		<% } %>
-    		<% if(typeof(Chinese_done) !== 'undefined' && Chinese_done === true) { %>
-			已完成
-    		<% } %>
-		</td>
-	</tr>
+		<li class="subject-panel">
+			<h2>数学：</h2>
+			<br>
+			<p><%=math_hw %></p>
+			<br>
+			<div>
+				<% if(typeof(math_done) !== 'undefined' && math_done === false) { %>
+				<form id='study_form' class='form-horizontal' action='/home/study?subject=math' method='post'>
+					<input type="submit" value="确认完成" class="btn">
+	    		</form>
+	    		<% } %>
+	    		<% if(typeof(math_done) !== 'undefined' && math_done === true) { %>
+				<span>已完成，继续加油噢！</span>
+	    		<% } %>
+			</div>
+		</li>
 
-	<tr>
-		<th>数学：</th>
-		<td><%=math_hw %></td>
-		<td>
-			<% if(typeof(math_done) !== 'undefined' && math_done === false) { %>
-			<form id='study_form' class='form-horizontal' action='/home/study?subject=math' method='post'>
-				<input type="submit" value="确认完成">
-    		</form>
-    		<% } %>
-    		<% if(typeof(math_done) !== 'undefined' && math_done === true) { %>
-			已完成
-    		<% } %>
-		</td>
-	</tr>
-
-	<tr>
-		<th>英语：</th>
-		<td><%=English_hw %></td>
-		<td>
-			<% if(typeof(English_done) !== 'undefined' && English_done === false) { %>
-			<form id='study_form' class='form-horizontal' action='/home/study?subject=English' method='post'>
-				<input type="submit" value="确认完成">
-    		</form>
-    		<% } %>
-    		<% if(typeof(English_done) !== 'undefined' && English_done === true) { %>
-			已完成
-    		<% } %>
-		</td>
-	</tr>
-</table>
-
-<h2>成绩列表：</h2>
-<table border="1">
-
-	<th>
-		<th>第一次月考</th>
-		<th>第二次月考</th>
-		<th>期中考试</th>
-		<th>期末考试</th>
-	</th>
-
-	<tr>
-		<th>语文：</th>
-		<td>88</td>
-		<td>88</td>
-		<td>88</td>
-		<td>88</td>
-	</tr>
-
-	<tr>
-		<th>数学：</th>
-		<td>88</td>
-		<td>88</td>
-		<td>88</td>
-		<td>88</td>
-	</tr>
-
-	<tr>
-		<th>英语：</th>
-		<td>88</td>
-		<td>88</td>
-		<td>88</td>
-		<td>88</td>
-	</tr>
-</table>
+		<li class="subject-panel">
+			<h2>英语：</h2>
+			<br>
+			<p><%=English_hw %></p>
+			<br>
+			<div>
+				<% if(typeof(English_done) !== 'undefined' && English_done === false) { %>
+				<form id='study_form' class='form-horizontal' action='/home/study?subject=English' method='post'>
+					<input type="submit" value="确认完成" class="btn">
+	    		</form>
+	    		<% } %>
+	    		<% if(typeof(English_done) !== 'undefined' && English_done === true) { %>
+				<span>已完成，继续加油噢！</span>
+	    		<% } %>
+			</div>
+		</li>
+	</ul>
+</div>

@@ -3,14 +3,157 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>帮助孩子快乐学习，健康成长</title>
+  <link rel="stylesheet" href="base1.css" type="text/css">
   <style media="screen">
-    *{margin: 0;padding: 0;}
+    /**{margin: 0;padding: 0;}
     .nav{background-color: black;color:gray}
     .nav h2{display: inline-block;margin-left: 50px;}
     .nav h3{display: inline-block;margin-left: 40px;}
     .nav ul{list-style: none;display: inline-block;margin-left: 300px}
     .nav li{display: inline-block;width: 120px;text-align: center;line-height: 50px}
-    .nav li:hover{color: white}
+    .nav li:hover{color: white}*/
+    /*base*/
+    *{margin: 0;padding: 0}
+    a{
+      text-decoration: none;
+      color: inherit;
+    }
+    /*layout*/
+    .wrapper{
+      width: 960px;
+      margin: 10px auto;
+    }
+    /*module*/
+    .box-border{
+      border: 1px solid rgb(13, 135, 122);
+      border-radius: 5px;
+    }
+    .btn{
+      background-color: rgb(13, 135, 122);
+      border: 0;
+      color: white;
+      font-weight: bold;
+      width: 80px;
+      height: 30px;
+      border-radius: 5px
+    }
+    .input-box{
+      padding: 0 10px;
+      margin-bottom: 10px;
+      height: 30px;
+      width: 200px;
+    }
+    /*partial*/
+    .check-head{
+      border-radius: 5px;
+      background-color: rgb(212, 227, 219);
+      color: rgb(13,135,122);
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .subject-panel{
+      border-radius: 5px;
+      background-color: rgb(212,227,219);
+      color: rgb(13,135,122);
+      margin-bottom: 10px;
+    }
+    .header{
+      background-color:rgb(13, 135, 122);
+      width: 100%;
+    }
+    .nav-tabs{
+      width: 90%;
+      margin: 0 auto;
+      overflow: hidden;
+      min-width: 900px;
+    }
+    .introduce{
+      float: left;
+      color: white;
+      text-align: center;
+    }
+    .nav-tabs ul{
+      list-style: none;
+      display: inline-block;
+      float: right;
+      width: 500px;
+      justify-content: space-between;
+    }
+    .nav-tabs li{
+      display: inline-block;
+      text-align: center;
+      line-height: 24px;
+      padding: 5px;
+    }
+    .nav-tabs li:not(:last-child){
+      border-right: 1px solid rgb(212, 227, 219);
+    }
+    .nav-tabs li a{
+      color: rgb(212, 227, 219);
+      text-decoration: none;
+    }
+    .nav-tabs li a:hover{
+      color: white
+    }
+    .register-box{
+      width: 300px;
+      height: 250px;
+    }
+    .login-box{
+      width: 300px;
+      height: 160px;
+    }
+    .user-info {
+      font-size: 18px;
+      font-weight: bold;
+      padding-right: 20px;
+    }
+    .user-info .title{
+      width: 120px;
+      text-align: right;
+      margin:10px;
+    }
+    .user-info td{
+      color: rgb(13,135,122);
+      margin: 10px;
+    }
+    /*tools*/
+    .clearfix:after{
+      content: "";
+      display: block;
+      clear: both;
+    }
+    .be-center{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+    .add-padding{
+      padding: 20px 10px;
+    }
+    .text-center{
+      text-align: center;
+    }
 
   </style>
 </head>
+<body>
+  <div class='header'>
+    <div class="nav-tabs">
+      <div class="introduce">
+        <h3>家校沟通系统</h2>
+        <h4>专业的老师和家长的沟通平台</h3>
+      </div>
+      <ul class="clearfix">
+        <li><a href='/home/user'>个人中心</a></li>
+        <li><a href='/home/study'>学习监督</a></li>
+        <li><a href='/home/community'>在线交流</a></li>
+        <li><a href='/home/bbs'>家长社区</a></li>
+        <li><a href='/home/info'>消息平台</a></li>
+        <li><a href='/home/quit'>退出登录</a></li>
+      </ul>
+    </div>
+  </div>
+</body>

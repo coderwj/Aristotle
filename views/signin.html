@@ -1,37 +1,36 @@
 <%- partial('./head') %>
 
 <div id='content'>
-  <div class='panel'>
-    <div class='header'>
-      <a href='/signup'>去注册</a>
-    </div>
-     <% if(typeof(info) !== 'undefined' && info){ %>
-    <div class='info'>
-      <p><%= info %></p>
-    </div>
-    <script type="text/javascript">
-      document.location = '/signin'
-    </script>
-    <% } %>
-    <% if(typeof(error) !== 'undefined' && error){ %>
-    <div class='info'>
-      <p><%= error %></p>
-    </div>
-    <% } %>
-    <% if(typeof(success) !== 'undefined' && success){ %>
-    <div class='info'>
-      <p><%= success %></p>
-    </div>
-    <script type="text/javascript">
-      document.location = '/home'
-    </script>
-    <% } %>
-    <div class='inner'>
-      <form id='signin_form' class='form-horizontal' action='/signin' method='post'>
-        <input class='input-xlarge' id='id' name='id' size='30' type='text' placeholder="用户名"/>
-        <input class='input-xlarge' id='pass' name='pass' size='30' type='password'placeholder="密码"/>
-        <input type='submit' class='span-primary' value='登录'/>
-      </form>
-    </div>
+  <% if(typeof(info) !== 'undefined' && info){ %>
+  <div class='info'>
+    <p><%= info %></p>
+  </div>
+  <script type="text/javascript">
+   document.location = '/signin'
+  </script>
+  <% } %>
+  <% if(typeof(error) !== 'undefined' && error){ %>
+  <div class='info'>
+  <p><%= error %></p>
+  </div>
+  <% } %>
+  <% if(typeof(success) !== 'undefined' && success){ %>
+  <div class='info'>
+    <p><%= success %></p>
+  </div>
+  <script type="text/javascript">
+   document.location = '/home'
+  </script>
+  <% } %>
+  <div class='be-center box-border add-padding text-center login-box'>
+    <h2 style="color:rgb(13,135,122);">用户登陆</h2>
+    <form id='signin_form' class='form-horizontal' action='/signin' method='post'>
+      <input class='input-xlarge box-border input-box' id='id' name='id' size='30' type='text' placeholder="用户名"/><br>
+      <input class='input-xlarge box-border input-box' id='pass' name='pass' size='30' type='password'placeholder="密码"/><br>
+      <input type='submit' class='btn' value='登录'/>
+      <div class='btn' style="display:inline-block">
+        <a href='/signup' style="font-size:12px;line-height:30px;">去注册</a>
+      </div>
+    </form>
   </div>
 </div>
