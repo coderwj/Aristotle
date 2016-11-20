@@ -29,3 +29,6 @@ exports.Question = mongoose.model('Question');
 
 require('./answer');
 exports.Answer = mongoose.model('Answer');
+
+require('./information');
+exports.Information = mongoose.model('Information');

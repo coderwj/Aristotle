@@ -6,6 +6,7 @@ var sign = require('./controllers/sign');
 var home = require('./controllers/home');
 
 var study = require('./controllers/study');
+var bbs = require('./controllers/bbs');
 
 var router = express.Router();
 
@@ -27,5 +28,8 @@ router.get('/home/info', home.showInfo);//进入消息平台
 router.get('/home/quit', home.Quit);//退出登录
 
 router.post('/home/study', study.homeworkEnsure);//作业监督确认
+
+router.post('/home/bbs/addQuestion', bbs.addQuestion);//增加问题
+router.get('/home/bbs/answer', bbs.seeAnswer);
 
 module.exports = router;

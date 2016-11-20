@@ -6,7 +6,8 @@ var QuestionSchema = new Schema({
   title: { type: String },
   content: { type: String },
   create_p_id: { type: String },
+  date: { type: Date, default: Date.now },
 });
-QuestionSchema.index({id: 1}, {unique: true});
+QuestionSchema.index({id: 1, date: -1}, {unique: true});
 
 mongoose.model('Question', QuestionSchema);

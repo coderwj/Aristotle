@@ -2,6 +2,8 @@ var parentproxy = require('../proxy/parent');
 var studentproxy = require('../proxy/student');
 var classproxy = require('../proxy/class');
 var teacherproxy = require('../proxy/teacher');
+var questionproxy = require('../proxy/question');
+var informationproxy = require('../proxy/information');
 //sign up
 exports.showHome = function (req, res) {
 	var id = req.cookies.id
@@ -10,6 +12,7 @@ exports.showHome = function (req, res) {
 		res.cookie('id', req.cookies.id, {path: '/home/study'});
 		res.cookie('id', req.cookies.id, {path: '/home/community'});
 		res.cookie('id', req.cookies.id, {path: '/home/bbs'});
+		res.cookie('id', req.cookies.id, {path: '/home/bbs/addQuestion'});
 		res.cookie('id', req.cookies.id, {path: '/home/info'});
   		res.redirect('/home/user');
 	}
@@ -82,11 +85,21 @@ exports.showCommunity = function (req, res) {
 };
 
 exports.showBbs = function (req, res) {
-  	res.render('home/bbs');
+	questionproxy.findAllQuestion(function (err, questions) {
+		if(err){
+			return res.sendStatus(403);
+		}
+		res.render('home/bbs', {questions: questions});
+	});
 };
 
 exports.showInfo = function (req, res) {
-  	res.render('home/info');
+	informationproxy.findAllInformation(function (err, informations) {
+		if(err){
+			return res.sendStatus(403);
+		}
+		res.render('home/info', {informations: informations});
+	});
 };
 
 exports.Quit = function (req, res) {
@@ -95,6 +108,7 @@ exports.Quit = function (req, res) {
 	res.clearCookie('id', {path: '/home/study'});
 	res.clearCookie('id', {path: '/home/community'});
 	res.clearCookie('id', {path: '/home/bbs'});
+	res.clearCookie('id', {path: '/home/bbs/addQuestion'});
 	res.clearCookie('id', {path: '/home/info'});
 
   	res.render('signin', { info: '注销成功' });
