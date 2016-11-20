@@ -116,7 +116,7 @@ exports.signin = function (req, res, next) {
 
   ep.on('login_error', function () {
     res.status(403);
-    res.render('signin', { error: '用户名或密码错误' });
+    res.render('signin', { error: '用户名或密码错误。' });
     return;
   });
   parentproxy.getParentByIdAndPass(id, pass, function (err, parent) {
@@ -125,7 +125,7 @@ exports.signin = function (req, res, next) {
       return;
     }
     res.cookie('id', id, { path: '/home' });
-    res.render('signin', { success: '登陆成功，跳转中。。。', host: config.hostname, port: config.port });
+    res.render('signin', { success: '登陆成功，跳转中。', host: config.hostname, port: config.port });
   });
 };
 

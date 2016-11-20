@@ -1,27 +1,6 @@
 <%- partial('./head') %>
 
 <div id='content'>
-  <% if(typeof(info) !== 'undefined' && info){ %>
-  <div class='info'>
-    <p><%= info %></p>
-  </div>
-  <script type="text/javascript">
-   document.location = '/signin'
-  </script>
-  <% } %>
-  <% if(typeof(error) !== 'undefined' && error){ %>
-  <div class='info'>
-  <p><%= error %></p>
-  </div>
-  <% } %>
-  <% if(typeof(success) !== 'undefined' && success){ %>
-  <div class='info'>
-    <p><%= success %></p>
-  </div>
-  <script type="text/javascript">
-   document.location = '/home'
-  </script>
-  <% } %>
   <div class='be-center box-border add-padding text-center login-box'>
     <h2 style="color:rgb(13,135,122);">用户登陆</h2>
     <form id='signin_form' class='form-horizontal' action='/signin' method='post'>
@@ -32,5 +11,27 @@
         <a href='/signup' style="font-size:12px;line-height:30px;">去注册</a>
       </div>
     </form>
+
+    <% if(typeof(info) !== 'undefined' && info){ %>
+    <div class='add-padding' style="color:rgb(13,135,122);">
+      <p><%= info %></p>
+    </div>
+    <script type="text/javascript">
+     document.location = '/signin'
+    </script>
+    <% } %>
+    <% if(typeof(error) !== 'undefined' && error){ %>
+    <div class='add-padding' style="color:rgb(13,135,122);">
+    <p><%= error %></p>
+    </div>
+    <% } %>
+    <% if(typeof(success) !== 'undefined' && success){ %>
+    <div class='add-padding' style="color:rgb(13,135,122);">
+      <p><%= success %></p>
+    </div>
+    <script type="text/javascript">
+     document.location = '/home'
+    </script>
+    <% } %>
   </div>
 </div>

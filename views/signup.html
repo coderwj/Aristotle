@@ -2,12 +2,6 @@
 
 <div id='content'>
 
-  <% if(typeof(error) !== 'undefined' && error){ %>
-  <div class='info'>
-    <p><%= error %></p>
-  </div>
-  <% } %>
-
   <div class='be-center box-border add-padding text-center register-box'>
     <h2 style="color:rgb(13,135,122);">用户注册</h2>
     <form id='signup_form' class='form-horizontal' action='/signup' method='post'>
@@ -21,6 +15,12 @@
         <a href='/signin' style="font-size:12px;line-height:30px">去登录</a>
       </div>
     </form>
+
+    <% if(typeof(error) !== 'undefined' && error){ %>
+    <div class='add-padding' style="color:rgb(13,135,122);">
+      <p><%= error %></p>
+    </div>
+    <% } %>
   </div>
 
 </div>
