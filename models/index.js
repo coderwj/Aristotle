@@ -23,3 +23,9 @@ exports.Teacher = mongoose.model('Teacher');
 
 require('./class');
 exports.Class = mongoose.model('Class');
+
+require('./question');
+exports.Question = mongoose.model('Question');
+
+require('./answer');
+exports.Answer = mongoose.model('Answer');

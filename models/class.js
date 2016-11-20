@@ -2,7 +2,7 @@ var mongoose  = require('mongoose');
 var Schema    = mongoose.Schema;
 
 var ClassSchema = new Schema({
-  id: { type: String},
+  id: { type: String },
   head_t_id: { type: String },
 
   math_t_id: { type: String },

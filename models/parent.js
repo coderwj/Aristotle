@@ -2,7 +2,7 @@ var mongoose  = require('mongoose');
 var Schema    = mongoose.Schema;
 
 var ParentSchema = new Schema({
-  id: { type: String},
+  id: { type: String },
   pass: { type: String },
   stu_id: { type: String },
 
