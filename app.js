@@ -29,6 +29,7 @@ app.use(cookieParser());
 
 // configuration in all env
 app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'html');
 app.engine('html', require('ejs-mate'));
 //app.locals._layoutFile = 'layout.html';

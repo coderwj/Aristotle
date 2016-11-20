@@ -62,12 +62,17 @@ exports.showStudy = function (req, res) {
 		    if(!student){
 		    	return res.sendStatus(403);
 		    }
-		    res.render('home/study', { math_hw: _class.math_hw,
-	    							Chinese_hw: _class.Chinese_hw,
-	    							English_hw: _class.English_hw,
-	    							math_done: student.math_done,
-	    							Chinese_done: student.Chinese_done,
-	    							English_done: student.English_done });
+		    var parms = { math_hw: _class.math_hw,
+	    				  Chinese_hw: _class.Chinese_hw,
+	    				  English_hw: _class.English_hw,
+	    				  math_done: student.math_done,
+	    				  Chinese_done: student.Chinese_done,
+	    				  English_done: student.English_done };
+
+		    parms.math_score = [student.math_score_1, student.math_score_2, student.math_score_3, student.math_score_4];
+		    parms.Chinese_score = [student.Chinese_score_1, student.Chinese_score_2, student.Chinese_score_3, student.Chinese_score_4];
+		    parms.English_score = [student.English_score_1, student.English_score_2, student.English_score_3, student.English_score_4];
+		    res.render('home/study', parms);
 		});
     });
 };
