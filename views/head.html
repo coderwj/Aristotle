@@ -43,6 +43,9 @@
       height: 30px;
       width: 200px;
     }
+    .disabled-btn{
+      background-color: #333;
+    }
     /*partial*/
     .check-head{
       border-radius: 5px;
@@ -118,11 +121,111 @@
       color: rgb(13,135,122);
       margin: 10px;
     }
+    .grade-table,.grade-table th,.grade-table td{
+      border: 1px solid rgb(13,135,122);
+      color:rgb(13,135,122);
+      font-size: 18px;
+    }
+    .grade-table{
+      border-collapse: collapse;
+      width: 960px;
+      text-align: center;
+      margin: 0 auto;
+    }
+    .grade-table tr:hover{
+      background-color: rgb(212, 227, 219);
+    }
+    .bbs{
+      margin:20px auto;
+      width: 960px;
+      color:rgb(13,135,122);
+    }
+    .bbs-head{
+      background-color: rgb(212, 227, 219);
+    }
+    .bbs-head{
+      width: 75%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    .bbs-head-asker,.bbs-head-ask-time{
+      text-align: center;
+    }
+    .bbs-box-asker,.bbs-box-ask-time{
+      text-align: center;
+    }
+    .bbs-box:nth-child(2n-1){
+      background-color: rgb(212,227,219);
+    }
+    .bbs-box:hover{
+      background-color: rgb(212,227,219);
+    }
+    .question-panel{
+      display: none;
+      margin: 0 auto;
+      border: 1px solid rgb(13,135,122);
+      border-radius: 5px;
+      position: relative;
+    }
+    .question-box{
+      width: 400px;
+      height: 30px;
+      border-radius: 5px;
+      border: 1px solid rgb(13,135,122);
+      margin: 5px;
+    }
+    .state-box{
+      width: 860px;
+      height: 150px;
+      border-radius: 5px;
+      border: 1px solid rgb(13,135,122);
+      margin: 5px;
+    }
+    .close-btn{
+      background-color: red !important;
+      position: absolute;
+      right: 5px;
+      top: 5px;
+    }
+    .info-ul{
+      padding: 20px 150px;
+      background-color: rgb(212, 227, 219);
+      border: 1px solid rgb(13,135,122);
+      list-style-type: none;
+      border-radius: 5px;
+    }
+    .info-ul li{
+      margin-bottom: 20px;
+      padding: 5px;
+      overflow: hidden;
+    }
+    .info-title,.info-time{
+      font-size: 18px;
+      color: rgb(13,135,122);
+    }
+    .info-title{
+      float: left;
+    }
+    .info-time{
+      float: right;
+    }
+    .info-panel{
+      border: 1px solid rgb(13,135,122);
+      width: 100%;
+      border-radius: 10px;
+      background-color: #fff;
+    }
+    .info-publisher{
+      float: right;
+      color: rgb(13,135,122);
+    }
+
     /*tools*/
     .clearfix:after{
       content: "";
       display: block;
       clear: both;
+      height: 0;
     }
     .be-center{
       position: absolute;

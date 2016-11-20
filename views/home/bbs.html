@@ -1,3 +1,58 @@
 <%- partial('./menu') %>
-
-<p>content of BBS</p>
+<div class="wrapper">
+  <h3 class="check-head">在线交流论坛</h3>
+  <table class="bbs">
+    <tr class="bbs-head">
+      <th class="bbs-head-theme">
+        讨论主题
+      </th>
+      <th class="bbs-head-asker">
+        提问人
+      </th>
+      <th class="bbs-head-ask-time">
+        提问时间
+      </th>
+    </tr>
+    <!--此处应为循环遍历服务器传来的数组，获得行，效果为单数行与偶数行效果不一样-->
+    <tr class="bbs-box">
+      <td class="bbs-box-theme">
+        <a href="#">科比厉害还是王仕鹏厉害?</a>
+      </td>
+      <td class="bbs-box-asker">
+        redstarbury
+      </td>
+      <td class="bbs-box-ask-time">
+        2016-11-20
+      </td>
+    </tr>
+  </table>
+  <button type="button" name="button" class="btn js-btn">我要提问</button>
+  <br>
+  <br>
+  <div class="question-panel">
+    <form class="my-question" action="index.html" method="post"><!--action内填接口-->
+      <input type="text" name="name" value="请输入您的问题" class="question-box"><br>
+      <input type="hidden" name="name" value="">
+      <textarea name="name"class="state-box"></textarea>
+      <input type="submit" name="name" class="btn js-submit "value="确认提交" style="position:relative;top:-18px;">
+    </form>
+    <button type="button" name="button" class="close-btn js-close btn">取消</button>
+  </div>
+</div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+$(function(){
+  $(".js-btn").click(function(){
+    $(".question-panel").show();
+    $(".js-btn").addClass("disabled-btn");
+  })
+  $(".js-submit").click(function(){
+    $(".question-panel").hide();
+    $(".js-btn").removeClass("disabled-btn");
+  })
+  $(".js-close").click(function(){
+    $(".question-panel").hide();
+    $(".js-btn").removeClass("disabled-btn");
+  })
+})
+</script>
