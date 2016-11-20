@@ -122,21 +122,21 @@ var func2 = function () {
 };
 
 var add_scores = function (id, scores) {
-	studentproxy.updateScore('stu1', 'math', 1, scores[0][0], closure(callback, 'setScore'));
-	studentproxy.updateScore('stu1', 'Chinese', 1, scores[0][1], closure(callback, 'setScore'));
-	studentproxy.updateScore('stu1', 'English', 1, scores[0][2], closure(callback, 'setScore'));
+	studentproxy.updateScore(id, 'math',    1, scores[0][0], closure(callback, 'setScore'));
+	studentproxy.updateScore(id, 'Chinese', 1, scores[0][1], closure(callback, 'setScore'));
+	studentproxy.updateScore(id, 'English', 1, scores[0][2], closure(callback, 'setScore'));
 
-	studentproxy.updateScore('stu1', 'math', 2, scores[1][0], closure(callback, 'setScore'));
-	studentproxy.updateScore('stu1', 'Chinese', 2, scores[1][1], closure(callback, 'setScore'));
-	studentproxy.updateScore('stu1', 'English', 2, scores[1][2], closure(callback, 'setScore'));
+	studentproxy.updateScore(id, 'math',    2, scores[1][0], closure(callback, 'setScore'));
+	studentproxy.updateScore(id, 'Chinese', 2, scores[1][1], closure(callback, 'setScore'));
+	studentproxy.updateScore(id, 'English', 2, scores[1][2], closure(callback, 'setScore'));
 
-	studentproxy.updateScore('stu1', 'math', 3, scores[2][0], closure(callback, 'setScore'));
-	studentproxy.updateScore('stu1', 'Chinese', 3, scores[2][1], closure(callback, 'setScore'));
-	studentproxy.updateScore('stu1', 'English', 3, scores[2][2], closure(callback, 'setScore'));
+	studentproxy.updateScore(id, 'math',    3, scores[2][0], closure(callback, 'setScore'));
+	studentproxy.updateScore(id, 'Chinese', 3, scores[2][1], closure(callback, 'setScore'));
+	studentproxy.updateScore(id, 'English', 3, scores[2][2], closure(callback, 'setScore'));
 
-	studentproxy.updateScore('stu1', 'math', 4, scores[3][0], closure(callback, 'setScore'));
-	studentproxy.updateScore('stu1', 'Chinese', 4, scores[3][1], closure(callback, 'setScore'));
-	studentproxy.updateScore('stu1', 'English', 4, scores[3][2], closure(callback, 'setScore'));
+	studentproxy.updateScore(id, 'math',    4, scores[3][0], closure(callback, 'setScore'));
+	studentproxy.updateScore(id, 'Chinese', 4, scores[3][1], closure(callback, 'setScore'));
+	studentproxy.updateScore(id, 'English', 4, scores[3][2], closure(callback, 'setScore'));
 }
 
 
@@ -147,13 +147,13 @@ exports.reinit = function (reset_parent) {
 	newStudent('stu1', '学生1', 'class1', closure(add_scores, 'stu1', scores_1));
 
 	var scores_2 = [['70', '80', '90'],['70', '80', '90'],['70', '80', '90'],['70', '80', '90']];
-	newStudent('stu2', '学生2', 'class1', closure(add_scores, 'stu1', scores_2));
+	newStudent('stu2', '学生2', 'class1', closure(add_scores, 'stu2', scores_2));
 
 	var scores_3 = [['70', '80', '90'],['70', '80', '90'],['70', '80', '90'],['70', '80', '90']];
-	newStudent('stu3', '学生3', 'class2', closure(add_scores, 'stu1', scores_3));
+	newStudent('stu3', '学生3', 'class2', closure(add_scores, 'stu3', scores_3));
 
 	var scores_4 = [['70', '80', '90'],['70', '80', '90'],['70', '80', '90'],['70', '80', '90']];
-	newStudent('stu4', '学生4', 'class2', closure(add_scores, 'stu1', scores_4));
+	newStudent('stu4', '学生4', 'class2', closure(add_scores, 'stu4', scores_4));
 
 	newTeacher('张老师', '1', 'math');
 	newTeacher('王老师', '1', 'Chinese');
