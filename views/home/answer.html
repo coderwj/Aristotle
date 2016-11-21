@@ -1,25 +1,45 @@
 <%- partial('./menu') %>
 <div class="wrapper">
-  <h2 class="check-head">消息通知栏</h2>
+  <h2 class="check-head">该问题的回复：</h2>
   <ul class="info-ul">
+
+    <% for(var i = 0; i < answers.length; i++) { %>
     <li class="clearfix">
       <div class="clearfix">
-        <span class="info-title">组织决定就是你了！</span>
-        <span class="info-time">2016-11-20</span>
+        <span class="info-title"><%= answers[i].create_p_id %></span>
+        <span class="info-time"><%= answers[i].date.toDateString() %></span>
       </div>
       <div class="info-panel">
-        Worth to note that he only played 7 minutes.
-        值得注意的是这17分是在7分钟内砍下的。
-        [–]Bucksthisishorsepoop 74 points an hour ago
-        That's only 72.8 points per 36
-        EDIT: Actually it's 88.4 points per 36, I guess that's a little better
-        每36分钟只有72.8分而已。
-        补充，实际上是每36分钟88.4分，这就要更好一些了。
-        [–]Raptorspleasefeedthedino 43 points an hour ago
-        Wilt only put up 75/36 in his 100 point game. If Embiid could play 48 minutes like Wilt he'd break the record and score 117. .
-        张伯伦100分那场比赛每36分钟才只有75分。 如果恩比德能够像张伯伦那样打满48分钟，他可以破记录得到117分。
+        <%= answers[i].content %>
       </div>
-      <span class="info-publisher">苍老师</span>
     </li>
+    <% } %>
   </ul>
+  <button type="button" name="button" class="btn js-btn">回复</button>
+  <br>
+  <br>
+  <div class="question-panel">
+    <form class="my-question" action="/home/bbs/addAnswer" method="post">
+      <textarea name="content"class="state-box"></textarea>
+      <input type="submit" name="name" class="btn js-submit "value="确认提交" style="position:relative;top:-18px;">
+    </form>
+    <button type="button" name="button" class="close-btn js-close btn">取消</button>
+  </div>
 </div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+$(function(){
+  $(".js-btn").click(function(){
+    $(".question-panel").show();
+    $(".js-btn").addClass("disabled-btn");
+  })
+  $(".js-submit").click(function(){
+    $(".question-panel").hide();
+    $(".js-btn").removeClass("disabled-btn");
+  })
+  $(".js-close").click(function(){
+    $(".question-panel").hide();
+    $(".js-btn").removeClass("disabled-btn");
+  })
+})
+</script>

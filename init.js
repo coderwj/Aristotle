@@ -10,6 +10,7 @@ var logger = require('./common/logger');
 var classproxy = require('./proxy/class');
 var studentproxy = require('./proxy/student');
 var questionproxy = require('./proxy/question');
+var answerproxy = require('./proxy/answer');
 var informationproxy = require('./proxy/information');
 
 var clean = function (model_name) {
@@ -157,7 +158,10 @@ exports.reinit = function (reset_parent) {
 	newClass('class2', '张老师', '张老师', '王老师', '李老师', func2);
 
 	var date = new Date();
-	questionproxy.newQuestion('如何提高孩子的自控能力？' + date.toString(), '如何提高孩子的自控能力？', '孩子自控能力差，有没有好的增强方法？', 'parent1', date, closure(callback, 'addQuestion'));
+	var q_id = '如何提高孩子的自控能力？';
+	questionproxy.newQuestion(q_id, '如何提高孩子的自控能力？', '孩子自控能力差，有没有好的增强方法？', 'parent1', date, closure(callback, 'addQuestion'));
+	answerproxy.newAnswer('多监督，严格要求，让孩子列出每日学习计划。', q_id, 'parent1', date, closure(callback, 'addAnswer'));
+	answerproxy.newAnswer('多监督，严格要求，让孩子列出每日学习计划。', q_id, 'parent1', date, closure(callback, 'addAnswer'));
 
 	var content1 = '根据国家相关部门关于2014年节假日安排的通知，结合我单位工作实际情况，现将2014年国庆节放假的有关事项安排如下：\n' +
 				  '10月1日至7日放假调休，共7天。\n' +
@@ -169,8 +173,8 @@ exports.reinit = function (reset_parent) {
 					'2．请在教室自习的学生自觉维护室内卫生，爱护室内设施，保持安静、良好的自习环境；' +
 					'3．安全起见，23:00以后回宿舍就寝的同学，请尽量结伴而行；';
 
-	informationproxy.newInformation('国庆节放假通知' + date.toString(), '元旦节放假通知', content1, '张老师', date, 'class1', closure(callback, 'addInformation'));
-	informationproxy.newInformation('关于延长自习室开放时间的通知' + date.toString(), '关于延长自习室开放时间的通知', content2, '张老师', date, 'class1', closure(callback, 'addInformation'));
+	informationproxy.newInformation('国庆节放假通知', '元旦节放假通知', content1, '张老师', date, 'class1', closure(callback, 'addInformation'));
+	informationproxy.newInformation('关于延长自习室开放时间的通知', '关于延长自习室开放时间的通知', content2, '张老师', date, 'class1', closure(callback, 'addInformation'));
 
 	logger.info('reinit success!');
 }

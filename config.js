@@ -28,7 +28,7 @@ var config = {
 
   reinit: true,
 
-  reset_parent: true,
+  reset_parent: false,
 
 };
 

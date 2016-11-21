@@ -30,6 +30,7 @@ router.get('/home/quit', home.Quit);//退出登录
 router.post('/home/study', study.homeworkEnsure);//作业监督确认
 
 router.post('/home/bbs/addQuestion', bbs.addQuestion);//增加问题
-router.get('/home/bbs/answer', bbs.seeAnswer);
+router.get('/home/bbs/answer', bbs.seeAnswer);//查看问题
+router.post('/home/bbs/addAnswer', bbs.addAnswer);//回答问题
 
 module.exports = router;
