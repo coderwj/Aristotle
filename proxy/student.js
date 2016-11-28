@@ -57,7 +57,7 @@ exports.updateScore = function (id, subject, time, score, callback) {
 	if((subject === 'math' || subject === 'Chinese' || subject === 'English') &&
 		(time === 1 || time === 2 || time === 3 || time ===4)){
 		var index = subject + '_score_' + time;
-		var update = {$set : { index : score} };
+		var update = {$set : { [index] : score} };
 		Student.update({id : id}, update, {}, function(error){
 			if(error) {
 				console.log(error);
