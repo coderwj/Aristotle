@@ -12,5 +12,5 @@ echo 'install nodejs finish.'
 sudo apt-get update
 
 echo 'start app---------------'
-nodejs ./app.js
+nohup nodejs ./app.js &
 echo 'start app finish---------------'

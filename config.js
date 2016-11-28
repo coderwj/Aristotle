@@ -16,7 +16,7 @@ var config = {
   //域名
   host: 'localhost',
   // 程序运行的端口
-  port: 3000,
+  port: 80,
 
   // mongodb 配置
   db: 'mongodb://127.0.0.1/Aristotle',
