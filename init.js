@@ -116,22 +116,11 @@ var set_homework = function (class_id) {
 };
 
 var add_scores = function (id, scores) {
-	logger.info(scores);
-	studentproxy.updateScore(id, 'math',    1, scores[0][0], closure(callback, 'setScore'));
-	studentproxy.updateScore(id, 'Chinese', 1, scores[0][1], closure(callback, 'setScore'));
-	studentproxy.updateScore(id, 'English', 1, scores[0][2], closure(callback, 'setScore'));
-
-	studentproxy.updateScore(id, 'math',    2, scores[1][0], closure(callback, 'setScore'));
-	studentproxy.updateScore(id, 'Chinese', 2, scores[1][1], closure(callback, 'setScore'));
-	studentproxy.updateScore(id, 'English', 2, scores[1][2], closure(callback, 'setScore'));
-
-	studentproxy.updateScore(id, 'math',    3, scores[2][0], closure(callback, 'setScore'));
-	studentproxy.updateScore(id, 'Chinese', 3, scores[2][1], closure(callback, 'setScore'));
-	studentproxy.updateScore(id, 'English', 3, scores[2][2], closure(callback, 'setScore'));
-
-	studentproxy.updateScore(id, 'math',    4, scores[3][0], closure(callback, 'setScore'));
-	studentproxy.updateScore(id, 'Chinese', 4, scores[3][1], closure(callback, 'setScore'));
-	studentproxy.updateScore(id, 'English', 4, scores[3][2], closure(callback, 'setScore'));
+	for(var i = 0; i < scores.length; i++){
+		studentproxy.updateScore(id, 'math',    i + 1, scores[i][0], closure(callback, 'setScore'));
+		studentproxy.updateScore(id, 'Chinese', i + 1, scores[i][1], closure(callback, 'setScore'));
+		studentproxy.updateScore(id, 'English', i + 1, scores[i][2], closure(callback, 'setScore'));
+	}
 }
 
 
