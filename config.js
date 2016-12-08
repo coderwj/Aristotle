@@ -16,14 +16,14 @@ var config = {
   //域名
   host: 'localhost',
   // 程序运行的端口
-  port: 80,
+  port: 3000,
 
   // mongodb 配置
   db: 'mongodb://127.0.0.1/Aristotle',
 
   reinit: true,
 
-  reset_parent: false,
+  reset_parent: true,
 
 };
 
