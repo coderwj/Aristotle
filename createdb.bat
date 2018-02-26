@@ -1,0 +1,1 @@
+sc.exe create MongoDB binPath= "\"C:\Program Files\MongoDB\Server\3.6\bin\mongod.exe\" --service --config=\"F:\Study\Aristotle\mongod.cfg\"" DisplayName= "Aristotle" start= "auto"
